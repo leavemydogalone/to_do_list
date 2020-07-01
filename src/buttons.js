@@ -1,7 +1,6 @@
 import {render} from './render';
 import {objectModule} from './objects';
 
-let iDNum = 0;
 const buttons = (() => {
     const newTaskButton = document.querySelector('#newTask');
     const deleteTaskButton = document.querySelectorAll('.deleteTask');
@@ -19,4 +18,3 @@ const buttons = (() => {
         });
     });
 })();
-

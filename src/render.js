@@ -13,9 +13,17 @@ const render = (() => {
         buttons.deleteTask(deleteButton);
     };
      
-    const rowContent = () => {
+    function rowContent (parent) {
+        let headingOne = document.createElement('h1');
+        let headingTwo = document.createElement('h2');
         
-    }
+        headingOne.textContent = document.getElementById('date').value;
+        headingTwo.textContent = document.getElementById('task').value;
+
+
+        parent.appendChild(headingOne);
+        parent.appendChild(headingTwo);
+    };
 
     const createRow = () => {
         let row = document.createElement('div');
@@ -25,16 +33,14 @@ const render = (() => {
         row.setAttribute('id', `${id}`);
         row.classList.add('row');
        
-        createDeleteButton(row);
         main.appendChild(row);
+        
+        rowContent(row);
+        createDeleteButton(row);
 
     };
 
-    const form = () => {
-        let formDiv = document.createElement('div');
-        let dateLabel = document.createElement()
-
-    }
+    
     
     return {createRow}
 })();

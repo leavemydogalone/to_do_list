@@ -2,13 +2,7 @@ import {render} from './render';
 import {objectModule} from './objects';
 
 const buttons = (() => {
-    
-    const newTaskButton = document.querySelector('#newTask');
-    newTaskButton.addEventListener('click', () => {
-        let newObj = objectModule.taskFactory('bart', 'simpson');
-        objectModule.taskArr.push(newObj);
-        render.createRow();
-    });
+    const myForm = document.getElementById('frm1');
 
     function deleteTask (button) {
         button.addEventListener('click', () =>{
@@ -17,6 +11,26 @@ const buttons = (() => {
         });
     };
     
+    const form = (e) => {
+        e.preventDefault();
+        
+        let newTask = objectModule.taskFactory(document.getElementById('task').value, 
+        document.getElementById('date').value);
+        objectModule.taskArr.push(newTask);
+
+        render.createRow();
+
+        document.forms[0].reset();
+
+        // save task list array to local storage 
+        localStorage.setItem('MyTaskList', JSON.stringify(objectModule.taskArr));
+
+        console.log(objectModule.taskArr);
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('formSubmit').addEventListener('click', form)
+    });
     
     return {
         

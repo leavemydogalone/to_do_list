@@ -22,6 +22,7 @@ const render = (() => {
 
 
         parent.appendChild(headingOne);
+        createDeleteButton(headingOne);
         parent.appendChild(headingTwo);
     };
 
@@ -36,12 +37,26 @@ const render = (() => {
         main.appendChild(row);
         
         rowContent(row);
-        createDeleteButton(row);
+        // createDeleteButton(row);
 
     };
 
+    const updateDate = () => {
+        var today = new Date();
+        let monthString;
+        let outputMonth = (() => {
+            let thisMonth = today.getMonth() + 1;
+            thisMonth < 10 ? monthString = '0' + thisMonth : monthString = thisMonth
+        })();
+        var date = today.getFullYear()+'-'+monthString+'-'+today.getDate();
+        document.getElementById('date').value = date;
+        
+    }
     
-    
+    document.addEventListener('DOMContentLoaded', () => {
+        updateDate();
+    });
+
     return {createRow}
 })();
 

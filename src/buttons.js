@@ -6,7 +6,7 @@ const buttons = (() => {
 
     function deleteTask (button) {
         button.addEventListener('click', () =>{
-            button.parentElement.parentElement.removeChild(button.parentElement);
+            button.parentElement.parentElement.parentElement.removeChild(button.parentElement.parentElement);
             objectModule.deleteObject(button);
         });
     };

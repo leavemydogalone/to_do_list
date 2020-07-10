@@ -19,17 +19,18 @@
 }
 .top {
     width: 100%;
-    height: 10%;
+    height: minmax(10%, 20%);
     display: block;
     position: relative;
     margin: auto;
     background-color: red;
-
+    text-align: center;
+    font-size: 50px;
 }
 
 .buttonBar {
     width: 50%;
-    height: 25px;
+    height: minmax(25px, 50px);
     display: block;
     position: relative;
     top: 3%;
@@ -79,7 +80,5 @@
 }
 
 .row button {
-    position: relative;
     float: right;
-    /* right: 5px; */
 }
